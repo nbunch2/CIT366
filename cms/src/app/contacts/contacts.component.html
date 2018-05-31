@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-5">
+    <cms-contact-list (SelectedContactEvent)="selectedContact = $event"></cms-contact-list>
+  </div>
+  <div class="col-md-7">
+
+    <!--<a class = "btn btn-sm btn-default" (click)="toggleList()" style="margin-top: 1rem">
+      <cms-contact-detail *ngIf="displayList"></cms-contact-detail>
+    </a>-->
+    <cms-contact-detail *ngIf="selectedContact" [contact]="selectedContact"></cms-contact-detail>
+  </div>
+</div>
