@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Message} from "./message.model";
+import { Message } from "./message.model";
 import {MOCKMESSAGES} from "./MOCKMESSAGES";
 
 
@@ -31,10 +31,9 @@ export class MessagesService {
   }
 
   addMessage(message: Message) {
-    // for (let ingredient of ingredients) {
-    //   this.addIngredient(ingredient);
-    // }
-    this.messages.push(...message);
+    if (!message === null)
+      return;
+    this.messages.push(message);
     this.messageChangeEvent.emit(this.messages.slice());
   }
 

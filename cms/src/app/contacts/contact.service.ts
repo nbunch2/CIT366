@@ -7,10 +7,13 @@ import {MOCKCONTACTS} from "./MOCKCONTACTS";
 export class ContactService {
   contacts: Contact[] = [];
   contactSelectedEvent = new EventEmitter<Contact>();
+  currentContact: Contact;
+
 
 
   constructor() {
     this.contacts = MOCKCONTACTS;
+    this.currentContact = this.contacts[2];
   }
 
   getContacts(): Contact[]{
