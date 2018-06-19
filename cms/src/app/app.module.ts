@@ -22,6 +22,7 @@ import {MessagesService} from "./messages/messages.service";
 import { AppRoutingModule} from "./app-routing";
 import { DocumentViewComponent } from './documents/document-view/document-view.component';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
+import {WindRefService} from "./wind-ref.service";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { DocumentEditComponent } from './documents/document-edit/document-edit.c
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ContactService, DocumentsService, MessagesService],
+  providers: [ContactService, DocumentsService, MessagesService, WindRefService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

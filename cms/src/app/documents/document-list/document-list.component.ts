@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Document} from "../document.model";
 import {Contact} from "../../contacts/contacts.model";
 import {DocumentsService} from "../documents.service";
+import {Params} from "@angular/router";
 
 @Component({
   selector: 'cms-document-list',
@@ -19,6 +20,12 @@ export class DocumentListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.documentService.documentChangedEvent
+      .subscribe(
+        (document: Document[]) => {
+          this.documents = document;
+        }
+      );
   }
 
 
