@@ -1,12 +1,14 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {Contact} from "./contacts.model";
 import {MOCKCONTACTS} from "./MOCKCONTACTS";
+import {Document} from "../documents/document.model";
 
 
 @Injectable()
 export class ContactService {
   contacts: Contact[] = [];
   contactSelectedEvent = new EventEmitter<Contact>();
+  contactChangedEvent = new EventEmitter<Contact[]>();
   currentContact: Contact;
 
 
@@ -23,15 +25,27 @@ export class ContactService {
 
   getContact(id: string) : Contact{
     for (let Contact of this.contacts){
-      if(Contact.id = id) {
+      if(Contact.id === id) {
         return Contact;
       }
-      else{
-        return null;
-      }
+
 
     }
   }
+
+  deleteContact(contact:Contact){
+    if (contact === null){
+      return;
+    }
+    const pos = this.contacts.indexOf(contact);
+    if (pos < 0 ){
+      return;
+    }
+    this.contacts.splice(pos, 1);
+    this.contactChangedEvent.emit(this.contacts.slice());
+  }
+
+
 
 
 }

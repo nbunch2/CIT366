@@ -23,6 +23,7 @@ import { AppRoutingModule} from "./app-routing";
 import { DocumentViewComponent } from './documents/document-view/document-view.component';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import {WindRefService} from "./wind-ref.service";
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {WindRefService} from "./wind-ref.service";
     MessageListComponent,
     DropdownDirective,
     DocumentViewComponent,
-    DocumentEditComponent
+    DocumentEditComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,
