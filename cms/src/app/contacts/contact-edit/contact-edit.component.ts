@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact} from "../contacts.model";
 
 @Component({
   selector: 'cms-contact-edit',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-edit.component.css']
 })
 export class ContactEditComponent implements OnInit {
+  contact: Contact;
 
   constructor() { }
 
