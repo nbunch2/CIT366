@@ -3,7 +3,7 @@ import {Contact} from "./contacts.model";
 import {MOCKCONTACTS} from "./MOCKCONTACTS";
 import {Document} from "../documents/document.model";
 import { Subject} from "rxjs/internal/Subject";
-
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class ContactService {
@@ -54,14 +54,15 @@ export class ContactService {
 
     for (let contact of this.contacts) {
 
-      let contactID: number = parseInt('contact.id');
+      let contactID: number = parseInt(contact.id);
 
-      if (contactID < maxId){
+      if (contactID > maxId){
         maxId = contactID;
       }
-      return maxId;
-
     }
+
+
+    return maxId;
   }
 
   addContact(newContact: Contact){
@@ -85,7 +86,7 @@ export class ContactService {
     if (pos < 0 ){
       return;
     }
-    document[pos] = newContact;
+    this.contacts[pos] = newContact;
     this.contactListChangedEvent.next(this.contacts.slice());
   }
 

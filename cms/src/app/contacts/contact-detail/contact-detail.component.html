@@ -15,6 +15,15 @@
         <a href="#" class="list-group-item clearfix" >
         <p class="list-group-item"> Email: {{ contact?.email}}</p>
         <p class="list-group-item">Phone: {{ contact?.phone }}</p>
+          <p class="list-group-item"> Group:</p>
+          <div *ngFor="let contact of groupContacts; let i = index">
+            <div>
+              <cms-contact-item class="col-sm-11" [contact]="contact"></cms-contact-item>
+
+            </div>
+          </div>
+
+
         </a>
       </div>
     </div>

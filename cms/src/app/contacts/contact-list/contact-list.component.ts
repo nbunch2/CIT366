@@ -3,6 +3,8 @@ import { Contact} from '../contacts.model';
 import {ContactService} from "../contact.service";
 import {Document} from "../../documents/document.model";
 import {Subscription} from "rxjs/internal/Subscription";
+import { ContactsFilterPipe} from "../contacts-filter.pipe";
+
 @Component({
   selector: 'cms-contact-list',
   templateUrl: './contact-list.component.html',
@@ -12,8 +14,11 @@ export class ContactListComponent implements OnInit, OnDestroy {
   @Output() selectedContactEvent = new EventEmitter<Contact>();
   contacts: Contact[] = [];
   subscription: Subscription;
+  term = '';
 
-
+  onKeyPress(value: string){
+    this.term = value;
+  }
 
   constructor(private contactService: ContactService) {
     this.contacts = contactService.getContacts();

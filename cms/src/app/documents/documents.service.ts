@@ -2,8 +2,7 @@ import {EventEmitter, Injectable, } from '@angular/core';
 import { MOCKDOCUMENTS} from "./MOCKDOCUMENTS";
 import {Document} from "./document.model";
 import { Subject } from 'rxjs/internal/Subject';
-
-
+import { Http, Response } from '@angular/http';
 
 
 @Injectable()
@@ -15,10 +14,36 @@ export class DocumentsService {
   maxDocumentId : number;
 
 
-  constructor() {
+  constructor(private http: Http, documentService: DocumentsService) {
     this.documents = MOCKDOCUMENTS;
     this.maxDocumentId = this.getMaxId();
   }
+
+  //storeRecipes() {
+    //return this.http.put('https://ng-recipe-book.firebaseio.com/recipes.json', this.recipeService.getRecipes());
+  //}
+
+/*
+  initDocuments(){
+    this.http.get('https://nrccms-9f9e2.firebaseio.com/documents.json')
+      .map(
+        (response: Response) => {
+          const documents: Document[] = response.json();
+          for (let document of documents) {
+            if (!document['name']) {
+              document['name'] = [];
+            }
+          }
+          return documents;
+        }
+      )
+      .subscribe(
+        (documents: Document[] =>{
+          this.documentService.
+        })
+      )
+  }*/
+
   getDocuments(): Document[]{
     return this.documents.slice();
   }
@@ -81,7 +106,15 @@ export class DocumentsService {
     if (pos < 0 ){
       return;
     }
-    document[pos] = newDocument;
+    newDocument.id = originalDocument.id;
+    this.documents[pos] = newDocument;
     this.documentListChangedEvent.next(this.documents.slice());
   }
 }
+
+/*saveContacts(){
+  const strContacts = JSON.stringify(this.contacts);
+  const headers = new HttpHeaders( (
+    'Content-type'
+  ))
+}*/
