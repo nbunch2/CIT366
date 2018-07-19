@@ -9,7 +9,7 @@ import { ContactService} from "../../contacts/contact.service";
   styleUrls: ['./message-edit.component.css']
 })
 export class MessageEditComponent implements OnInit {
-  currentSender = "Nicole";
+  currentSender: String =  "19";
 
   @ViewChild('subject') subjectRef: ElementRef;
   @ViewChild('msgText') msgTextRef: ElementRef;
@@ -23,9 +23,9 @@ export class MessageEditComponent implements OnInit {
   onAddMessage() {
     const subject = this.subjectRef.nativeElement.value;
     const msgText = this.msgTextRef.nativeElement.value;
-    const currentContact: string = '1';
+    //const currentContact: string = '1';
       //this.contactService.currentContact.id;
-    const newMessage = new Message('', currentContact, subject, msgText);
+    const newMessage = new Message('', this.currentSender, subject, msgText);
     this.messageService.addMessage(newMessage);
     //this.addMessageEvent.emit(newMessage);
 

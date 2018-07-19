@@ -6,7 +6,6 @@ import {ContactService} from "./contact.service";
   selector: 'cms-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css']
-  //providers: [ContactService] <--Probably don't need
 })
 export class ContactsComponent implements OnInit {
 displayList= false;
