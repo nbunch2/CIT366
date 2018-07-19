@@ -8,7 +8,9 @@ import {DocumentsService} from "./documents.service";
 })
 export class DocumentsComponent implements OnInit {
   selectedDocument: Document;
-  constructor(private documentService: DocumentsService) { }
+  constructor(private documentService: DocumentsService) {
+    this.documentService.getDocuments();
+  }
 
   ngOnInit() {
     this.documentService.documentSelectedEvent
