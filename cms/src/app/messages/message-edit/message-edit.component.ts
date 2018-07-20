@@ -9,7 +9,7 @@ import { ContactService} from "../../contacts/contact.service";
   styleUrls: ['./message-edit.component.css']
 })
 export class MessageEditComponent implements OnInit {
-  currentSender: String =  "19";
+  currentSender: string =  "19";
 
   @ViewChild('subject') subjectRef: ElementRef;
   @ViewChild('msgText') msgTextRef: ElementRef;

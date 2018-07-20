@@ -2,29 +2,29 @@
   <div class="panel-heading">
     <div href="#" class="list-group-item clearfix">
       <span class="list-group-item-heading">{{ contact?.name}}</span>
-      <img [src] = "contact?.imageUrl" alt="{{ contact?.name }}" class="img-responsive" style="max-height: 50px;">
+      <img [src]="contact?.imageUrl" alt="{{ contact?.name }}" class="img-responsive" style="max-height: 50px;">
     </div>
     <div class="pull-right">
-    <a class="btn btn-primary btn" routerLink="edit">Edit</a>
-    <a class="btn btn-danger btn" (click)="onDelete()">Delete</a>
+      <a class="btn btn-primary btn" routerLink="edit">Edit</a>
+      <a class="btn btn-danger btn" (click)="onDelete()">Delete</a>
     </div>
   </div>
   <div class="panel-body">
     <div class="row">
       <div class="col-xs-12">
-        <a href="#" class="list-group-item clearfix" >
-        <p class="list-group-item"> Email: {{ contact?.email}}</p>
-        <p class="list-group-item">Phone: {{ contact?.phone }}</p>
-          <p class="list-group-item"> Group:</p>
-          <div *ngFor="let contact of groupContacts; let i = index">
-            <div>
-              <cms-contact-item class="col-sm-11" [contact]="contact"></cms-contact-item>
 
+          <p class="list-group-item"> Email: {{ contact?.email}}</p>
+          <p class="list-group-item">Phone: {{ contact?.phone }}</p>
+          <div *ngIf="contact.group">
+            <p class="list-group-item"> Group:</p>
+            <div *ngFor="let contact of contact?.group; let i = index">
+              <div>
+                <cms-contact-item class="col-sm-11" [contact]="contact"></cms-contact-item>
+
+              </div>
             </div>
           </div>
 
-
-        </a>
       </div>
     </div>
   </div>

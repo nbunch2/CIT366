@@ -20,6 +20,7 @@ export class ContactService {
     //this.contacts = MOCKCONTACTS;
     //this.currentContact = this.contacts[2];
     //this.maxContactId=this.getMaxId();
+    this.getContacts();
   }
 
   getContacts(): Contact[]{
